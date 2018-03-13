@@ -6,20 +6,13 @@ import processing.core.PApplet;
 
 public class Button extends RectangularWidget {
     public String buttonText = "";
-    public int textSize = 12;
+    public UIFont font = UIFont.normal;
         
-    public Button(String id, PApplet screen, int x, int y, int width, int height, String buttonText, int textSize, UIFont font) {
+    public Button(String id, PApplet screen, int x, int y, int width, int height, String buttonText, UIFont font) {
     	super(id, screen, x, y, width, height, font);
     	
     	this.buttonText = buttonText;
-    	this.textSize = textSize;
-    }
-    
-    public Button(String id, PApplet screen, int x, int y, int width, int height, String buttonText, int textSize) {
-    	super(id, screen, x, y, width, height, UIFont.normal.clone());
-    	
-    	this.buttonText = buttonText;
-    	this.textSize = textSize;
+    	this.font = font;
     }
     
     public Button(String id, PApplet screen, int x, int y, int width, int height, String buttonText) {
@@ -38,7 +31,7 @@ public class Button extends RectangularWidget {
 	screen.rect(x,  y, width, height, font.roundedness);
 	screen.fill(font.stroke);
 	screen.textAlign(PApplet.CENTER, PApplet.CENTER);
-	screen.textSize(textSize);
+	screen.textSize(font.textSize);
 	screen.text(buttonText, x + width / 2, y + height / 2);
     }
     

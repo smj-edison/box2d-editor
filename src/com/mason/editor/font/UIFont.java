@@ -7,14 +7,16 @@ public class UIFont {
     public int stroke;
     public int strokeWeight;
     public int roundedness;
+    public int textSize;
     
-    public static final UIFont normal = new UIFont(color(255, 255, 255), color(0), 2, 3);
+    public static final UIFont normal = new UIFont(color(255, 255, 255), color(0), 2, 3, 12);
     
-    public UIFont(int color, int stroke, int strokeWeight, int roundedness) {
+    public UIFont(int color, int stroke, int strokeWeight, int roundedness, int textSize) {
 	this.color = color;
 	this.stroke = stroke;
 	this.strokeWeight = strokeWeight;
 	this.roundedness = roundedness;
+	this.textSize = textSize;
     }
     
     public UIFont() {
@@ -24,7 +26,7 @@ public class UIFont {
     }
     
     public UIFont clone() {
-	return new UIFont(color, stroke, strokeWeight, roundedness);
+	return new UIFont(color, stroke, strokeWeight, roundedness, textSize);
     }
     
     public void applyFont(PApplet screen) {
